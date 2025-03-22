@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+    .completed {
+    text-decoration: line-through;
+    color: gray;
+    }
+    </style>
+</head>
+<body class="p-4">
+    <h2 class="text-2xl font-bold mb-4">To-Do List</h2>
+    <input type="text" id="taskInput" placeholder="Tambahkan list" class="border p-2 rounded w-full mb-2">
+    <hr> 
+    <div class="flex gap-2 mb-4">
+        <button id="Tambah" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 flex-1">Tambah Item</button>
+        <button id="HapusSemua" class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600 flex-1">Hapus Semua Item</button>
+        <button id="HapusPilih" class="bg-purple-500 text-white px-4 py-2 rounded hover:bg-purple-600 flex-1">Hapus Item Selesai</button>
+        <button id="Urutkan" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600 flex-1">Urutkan Item</button>
+        <button id="Ganti" class="bg-orange-500 text-white px-4 py-2 rounded hover:bg-orange-600 flex-1">Ganti Warna</button>
+    </div>
+    
+    <div id="taskContainer" class="task-container">
+        <ul id="taskList" class="list-none space-y-2 bg-gray-300"></ul>
+    </div>
+
+    <script src="scriptTugas1.js"></script>
+</body>
+</html>

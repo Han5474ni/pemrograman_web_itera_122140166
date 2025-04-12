@@ -1,6 +1,6 @@
-# Dasbor Mahasiswa
+# Dasboard Mahasiswa
 
-Dasbor produktivitas pribadi untuk Mahasiswa yang dibuat dengan JavaScript.
+Dasboard produktivitas pribadi untuk Mahasiswa yang dibuat dengan JavaScript.
 
 ## Fitur-fitur
 

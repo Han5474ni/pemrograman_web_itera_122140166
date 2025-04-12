@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dahsboard Mahasiswa</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap">
+</head>
+<body>
+  <div class="dashboard">
+    <header class="header">
+      <div class="header-left">
+        <h1>Dahsboard Mahasiswa</h1>
+      </div>
+      <div class="header-right">
+        <div id="date-time" class="date-time">
+          <div id="time" class="time">00:00:00</div>
+          <div id="date" class="date">Monday, January 1, 2023</div>
+        </div>
+      </div>
+    </header>
+
+    <nav class="tabs">
+      <button class="tab-btn active" data-tab="todo">To-Do List</button>
+      <button class="tab-btn" data-tab="schedule">Class Schedule</button>
+      <button class="tab-btn" data-tab="notes">Quick Notes</button>
+    </nav>
+
+    <main class="content">
+      <!-- To-Do List Section -->
+      <section id="todo" class="tab-content active">
+        <div class="section-header">
+          <h2>To-Do List</h2>
+        </div>
+        <div class="todo-container">
+          <form id="todo-form" class="todo-form">
+            <input type="text" id="todo-input" placeholder="Add a new task..." required>
+            <button type="submit" class="btn add-btn">Add Task</button>
+          </form>
+          <div class="todo-filters">
+            <button class="filter-btn active" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+          </div>
+          <ul id="todo-list" class="todo-list"></ul>
+        </div>
+      </section>
+
+      <!-- Class Schedule Section -->
+      <section id="schedule" class="tab-content">
+        <div class="section-header">
+          <h2>Class Schedule</h2>
+        </div>
+        <div class="schedule-container">
+          <form id="schedule-form" class="schedule-form">
+            <div class="form-group">
+              <label for="class-day">Day</label>
+              <select id="class-day" required>
+                <option value="Monday">Monday</option>
+                <option value="Tuesday">Tuesday</option>
+                <option value="Wednesday">Wednesday</option>
+                <option value="Thursday">Thursday</option>
+                <option value="Friday">Friday</option>
+                <option value="Saturday">Saturday</option>
+                <option value="Sunday">Sunday</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="class-name">Class Name</label>
+              <input type="text" id="class-name" placeholder="e.g. Mathematics" required>
+            </div>
+            <div class="form-group">
+              <label for="class-time">Time</label>
+              <input type="time" id="class-time" required>
+            </div>
+            <div class="form-group">
+              <label for="class-duration">Duration (minutes)</label>
+              <input type="number" id="class-duration" min="15" step="15" value="90" required>
+            </div>
+            <div class="form-group">
+              <label for="class-location">Location</label>
+              <input type="text" id="class-location" placeholder="e.g. Room 101">
+            </div>
+            <button type="submit" class="btn add-btn">Add Class</button>
+          </form>
+          <div class="schedule-days">
+            <div class="day-selector">
+              <button class="day-btn active" data-day="Monday">Mon</button>
+              <button class="day-btn" data-day="Tuesday">Tue</button>
+              <button class="day-btn" data-day="Wednesday">Wed</button>
+              <button class="day-btn" data-day="Thursday">Thu</button>
+              <button class="day-btn" data-day="Friday">Fri</button>
+              <button class="day-btn" data-day="Saturday">Sat</button>
+              <button class="day-btn" data-day="Sunday">Sun</button>
+            </div>
+            <div id="schedule-list" class="schedule-list"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Quick Notes Section -->
+      <section id="notes" class="tab-content">
+        <div class="section-header">
+          <h2>Quick Notes</h2>
+        </div>
+        <div class="notes-container">
+          <form id="notes-form" class="notes-form">
+            <input type="text" id="note-title" placeholder="Note title..." required>
+            <textarea id="note-content" placeholder="Write your note here..." required></textarea>
+            <button type="submit" class="btn add-btn">Save Note</button>
+          </form>
+          <div id="notes-list" class="notes-list"></div>
+        </div>
+      </section>
+    </main>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

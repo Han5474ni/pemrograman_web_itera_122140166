@@ -1,95 +1,96 @@
-# Student Dashboard
+# Dasbor Mahasiswa
 
-A personal productivity dashboard for students built with vanilla JavaScript.
+Dasbor produktivitas pribadi untuk Mahasiswa yang dibuat dengan JavaScript.
 
-## Features
+## Fitur-fitur
 
-### To-Do List
-- Add, edit, and delete tasks
-- Mark tasks as completed
-- Filter tasks by status (All, Active, Completed)
-- Tasks are sorted by creation date (newest first)
+### Daftar Tugas
+- Menambah, mengedit, dan menghapus tugas
+- Menandai tugas sebagai selesai
+- Menyaring tugas berdasarkan status (Semua, Aktif, Selesai)
+- Tugas diurutkan berdasarkan tanggal pembuatan (yang terbaru lebih dulu)
 
-### Class Schedule
-- Add classes with name, time, duration, and location
-- View schedule by day of the week
-- Edit and delete classes
-- Classes are sorted by time
+### Jadwal Kelas
+- Menambah kelas dengan nama, waktu, durasi, dan lokasi
+- Melihat jadwal berdasarkan hari dalam seminggu
+- Mengedit dan menghapus kelas
+- Kelas diurutkan berdasarkan waktu
 
-### Quick Notes
-- Create notes with title and content
-- Edit and delete notes
-- Notes are sorted by creation date (newest first)
+### Catatan Cepat
+- Membuat catatan dengan judul dan konten
+- Mengedit dan menghapus catatan
+- Catatan diurutkan berdasarkan tanggal pembuatan (yang terbaru terlebih dahulu)
 
-### Real-time Clock & Date
-- Displays current time and date
-- Updates in real-time
+### Jam & Tanggal Waktu Nyata
+- Menampilkan waktu dan tanggal saat ini
+- Memperbarui secara waktu nyata
 
-## Technical Implementation
+## Implementasi Teknis
 
-### ES6+ Features Used
+## Fitur ES6+ yang Digunakan
 
 1. **let & const**
-   - Used throughout the code for proper variable declarations
-   - `const` for values that don't change
-   - `let` for variables that need reassignment
+ - Digunakan di seluruh kode untuk deklarasi variabel yang tepat
+ - `const` untuk nilai yang tidak berubah
+ - `let` untuk variabel yang membutuhkan penugasan ulang
 
-2. **Arrow Functions**
-   - Used for event handlers and callbacks
-   - Example: `setInterval(() => { ... }, 1000)`
-   - Example: `filterButtons.forEach(button => { ... })`
+2. **Fungsi Panah**
+ - Digunakan untuk event handler dan callback
+ - Contoh: `setInterval(() => { ... }, 1000)`
+ - Contoh: `filterButtons.forEach(button => { ... })`
 
 3. **Template Literals**
-   - Used for dynamic HTML rendering
-   - Example: `` `<div class="note-title">${this.escapeHtml(note.title)}</div>` ``
+ - Digunakan untuk rendering HTML dinamis
+ - Contoh: `` `<div class="note-title">${this.escapeHtml(note.title)}</div>` ``
 
 4. **Async/Await**
-   - Used for simulated data fetching
-   - Example: `async fetchWeatherData() { ... }`
-   - Example: `const weatherData = await app.fetchWeatherData()`
+ - Digunakan untuk simulasi pengambilan data
+ - Contoh: `async fetchWeatherData() { ... }`
+ - Contoh: `const weatherData = await app.fetchWeatherData()`
 
-5. **Classes**
-   - Main `Dashboard` class to organize code and manage state
-   - Methods for handling different features
+5. **Kelas**
+ - Kelas `Dashboard` utama untuk mengatur kode dan mengelola status
+ - Metode untuk menangani fitur yang berbeda
 
 6. **Destructuring**
-   - Used for extracting values from arrays
-   - Example: `const [hours, minutes] = time24h.split(':')`
+ - Digunakan untuk mengekstraksi nilai dari array
+ - Contoh: `const [jam, menit] = time24h.split(':')`
 
 7. **Spread Operator**
-   - Used for creating copies of arrays
-   - Example: `let filteredTodos = [...this.todos]`
+ - Digunakan untuk membuat salinan array
+ - Contoh: `let filteredTodos = [...this.todos]`
 
-8. **Default Parameters**
-   - Used in some function definitions
+8. **Parameter Default**
+ - Digunakan dalam beberapa definisi fungsi
 
 9. **localStorage API**
-   - Used for persistent data storage
-   - JSON.stringify/parse for data serialization
+ - Digunakan untuk penyimpanan data yang persisten
+ - JSON.stringify/parse untuk serialisasi data
 
-## Data Storage
+## Penyimpanan Data
 
-All data is stored in the browser's localStorage:
-- To-Do items
-- Class schedule
-- Notes
+Semua data disimpan di localStorage browser:
+- Item yang harus dilakukan
+- Jadwal kelas
+- Catatan
 
-## Screenshots
+## Tangkapan layar
 
-![Dashboard Overview](dashboard-overview.png)
-![To-Do List](todo-list.png)
-![Class Schedule](class-schedule.png)
-![Quick Notes](quick-notes.png)
+![image](https://github.com/user-attachments/assets/78d2c15e-ca10-41de-8a86-95eeec959a78)
 
-## How to Run
+![image](https://github.com/user-attachments/assets/7d5651a2-e3c3-4654-9312-6c63e5e373cc)
 
-1. Download all files (index.html, styles.css, app.js)
-2. Open index.html in any modern browser
-3. No build steps or dependencies required
+![image](https://github.com/user-attachments/assets/0ac8a772-505b-44a6-8d7c-6fbd835abfb0)
 
-## Browser Compatibility
+## Bagaimana Menjalankan
 
-Works in all modern browsers that support ES6+ features:
+1. Unduh semua file (index.html). Unduh semua file (index.html, styles.css, app.js)
+2. Buka index.html di browser modern apa pun
+3. Tidak ada langkah pembuatan atau ketergantungan yang diperlukan
+
+## Kompatibilitas browser
+
+Dapat digunakan di semua browser modern yang mendukung fitur ES6+:
 - Chrome
 - Firefox
 - Safari

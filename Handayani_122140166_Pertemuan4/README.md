@@ -84,7 +84,7 @@ Fungsi-fungsi yang tersedia:
 --------------------------------------------------
 ```
 
-## Informasi Pengembang
+## Informasi Tambahan
 
 Program ini dikembangkan sebagai bagian dari tugas Praktikum Pemrograman Web di Institut Teknologi Sumatera (ITERA).
 

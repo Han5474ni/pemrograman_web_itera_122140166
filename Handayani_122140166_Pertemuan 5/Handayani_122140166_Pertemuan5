@@ -1,0 +1,349 @@
+from abc import ABC, abstractmethod
+from datetime import datetime
+
+class LibraryItem(ABC):
+    """
+    Abstract base class for all library items.
+    Implements common attributes and methods for library items.
+    
+    This class serves as a blueprint for all types of items that can be stored
+    in a library. It defines the common properties and behaviors that all
+    library items should have.
+    """
+    def __init__(self, item_id, title, author, publication_year):
+        """
+        Initialize a library item with basic information.
+        
+        Args:
+            item_id (str): Unique identifier for the item
+            title (str): Title of the item
+            author (str): Author or publisher of the item
+            publication_year (int): Year the item was published
+        """
+        self._item_id = item_id
+        self._title = title
+        self._author = author
+        self._publication_year = publication_year
+        self._is_available = True
+        self._checkout_date = None
+        self._return_date = None
+
+    @property
+    def item_id(self):
+        """Get the unique identifier of the item."""
+        return self._item_id
+
+    @property
+    def title(self):
+        """Get the title of the item."""
+        return self._title
+
+    @property
+    def author(self):
+        """Get the author of the item."""
+        return self._author
+
+    @property
+    def is_available(self):
+        """Check if the item is currently available for checkout."""
+        return self._is_available
+
+    @abstractmethod
+    def display_info(self):
+        """
+        Abstract method to display item information.
+        
+        This method must be implemented by all subclasses to provide
+        a formatted string representation of the item's details.
+        
+        Returns:
+            str: Formatted string with item details
+        """
+        pass
+
+    def checkout(self):
+        """
+        Method to checkout an item from the library.
+        
+        Sets the item as unavailable and records the checkout date.
+        
+        Returns:
+            bool: True if checkout was successful, False if item is already checked out
+        """
+        if self._is_available:
+            self._is_available = False
+            self._checkout_date = datetime.now()
+            return True
+        return False
+
+    def return_item(self):
+        """
+        Method to return an item to the library.
+        
+        Sets the item as available and records the return date.
+        
+        Returns:
+            bool: True if return was successful, False if item is already available
+        """
+        if not self._is_available:
+            self._is_available = True
+            self._return_date = datetime.now()
+            return True
+        return False
+
+
+class Book(LibraryItem):
+    """
+    Book class that inherits from LibraryItem.
+    Represents a book in the library.
+    
+    This class extends the LibraryItem class with book-specific attributes
+    such as ISBN and genre.
+    """
+    def __init__(self, item_id, title, author, publication_year, isbn, genre):
+        """
+        Initialize a book with its specific attributes.
+        
+        Args:
+            item_id (str): Unique identifier for the book
+            title (str): Title of the book
+            author (str): Author of the book
+            publication_year (int): Year the book was published
+            isbn (str): International Standard Book Number
+            genre (str): Genre or category of the book
+        """
+        super().__init__(item_id, title, author, publication_year)
+        self._isbn = isbn
+        self._genre = genre
+
+    @property
+    def isbn(self):
+        """Get the ISBN of the book."""
+        return self._isbn
+
+    @property
+    def genre(self):
+        """Get the genre of the book."""
+        return self._genre
+
+    def display_info(self):
+        """
+        Implementation of abstract method to display book information.
+        
+        Returns:
+            str: Formatted string with book details including ID, title,
+                 author, publication year, ISBN, genre, and availability status
+        """
+        status = "Available" if self._is_available else "Checked Out"
+        return f"Book ID: {self._item_id}\nTitle: {self._title}\nAuthor: {self._author}\n" \
+               f"Publication Year: {self._publication_year}\nISBN: {self._isbn}\n" \
+               f"Genre: {self._genre}\nStatus: {status}"
+
+
+class Magazine(LibraryItem):
+    """
+    Magazine class that inherits from LibraryItem.
+    Represents a magazine in the library.
+    
+    This class extends the LibraryItem class with magazine-specific attributes
+    such as issue number and category.
+    """
+    def __init__(self, item_id, title, author, publication_year, issue_number, category):
+        """
+        Initialize a magazine with its specific attributes.
+        
+        Args:
+            item_id (str): Unique identifier for the magazine
+            title (str): Title of the magazine
+            author (str): Publisher of the magazine
+            publication_year (int): Year the magazine was published
+            issue_number (str): Issue number or date of the magazine
+            category (str): Category or subject of the magazine
+        """
+        super().__init__(item_id, title, author, publication_year)
+        self._issue_number = issue_number
+        self._category = category
+
+    @property
+    def issue_number(self):
+        """Get the issue number of the magazine."""
+        return self._issue_number
+
+    @property
+    def category(self):
+        """Get the category of the magazine."""
+        return self._category
+
+    def display_info(self):
+        """
+        Implementation of abstract method to display magazine information.
+        
+        Returns:
+            str: Formatted string with magazine details including ID, title,
+                 publisher, publication year, issue number, category, and availability status
+        """
+        status = "Available" if self._is_available else "Checked Out"
+        return f"Magazine ID: {self._item_id}\nTitle: {self._title}\nAuthor: {self._author}\n" \
+               f"Publication Year: {self._publication_year}\nIssue Number: {self._issue_number}\n" \
+               f"Category: {self._category}\nStatus: {status}"
+
+
+class Library:
+    """
+    Library class to manage the collection of library items.
+    Provides methods to add, search, and display items.
+    
+    This class represents a library and provides functionality to manage
+    a collection of library items including books and magazines.
+    """
+    def __init__(self, name):
+        """
+        Initialize a library with a name and empty collection.
+        
+        Args:
+            name (str): Name of the library
+        """
+        self.__name = name
+        self.__items = []
+
+    @property
+    def name(self):
+        """Get the name of the library."""
+        return self.__name
+
+    @property
+    def items(self):
+        """Get the list of all items in the library."""
+        return self.__items
+
+    def add_item(self, item):
+        """
+        Add a new item to the library.
+        
+        Args:
+            item (LibraryItem): The item to add to the library
+            
+        Returns:
+            bool: True if the item was added successfully, False otherwise
+        """
+        if isinstance(item, LibraryItem):
+            self.__items.append(item)
+            return True
+        return False
+
+    def remove_item(self, item_id):
+        """
+        Remove an item from the library by ID.
+        
+        Args:
+            item_id (str): The ID of the item to remove
+            
+        Returns:
+            bool: True if the item was removed successfully, False if not found
+        """
+        for item in self.__items:
+            if item.item_id == item_id:
+                self.__items.remove(item)
+                return True
+        return False
+
+    def search_by_id(self, item_id):
+        """
+        Search for an item by ID.
+        
+        Args:
+            item_id (str): The ID of the item to search for
+            
+        Returns:
+            LibraryItem or None: The found item or None if not found
+        """
+        for item in self.__items:
+            if item.item_id == item_id:
+                return item
+        return None
+
+    def search_by_title(self, title):
+        """
+        Search for items by title (partial match).
+        
+        Args:
+            title (str): The title or part of the title to search for
+            
+        Returns:
+            list: A list of items that match the search criteria
+        """
+        results = []
+        for item in self.__items:
+            if title.lower() in item.title.lower():
+                results.append(item)
+        return results
+
+    def display_available_items(self):
+        """
+        Display all available items in the library.
+        
+        Returns:
+            list: A list of all items that are currently available
+        """
+        available_items = [item for item in self.__items if item.is_available]
+        return available_items
+
+    def display_all_items(self):
+        """
+        Display all items in the library.
+        
+        Returns:
+            list: A list of all items in the library
+        """
+        return self.__items
+
+
+# Example usage of the library management system
+if __name__ == "__main__":
+    # Create a library
+    city_library = Library("City Public Library")
+
+    # Add books to the library
+    book1 = Book("B001", "Python Programming", "John Smith", 2020, "978-1234567890", "Programming")
+    book2 = Book("B002", "Data Science Basics", "Jane Doe", 2019, "978-0987654321", "Data Science")
+    book3 = Book("B003", "Web Development with Django", "Mike Johnson", 2021, "978-5678901234", "Web Development")
+
+    # Add magazines to the library
+    magazine1 = Magazine("M001", "Tech Today", "Tech Publications", 2022, "Issue 45", "Technology")
+    magazine2 = Magazine("M002", "Science Monthly", "Science Press", 2022, "Issue 12", "Science")
+
+    # Add items to the library
+    city_library.add_item(book1)
+    city_library.add_item(book2)
+    city_library.add_item(book3)
+    city_library.add_item(magazine1)
+    city_library.add_item(magazine2)
+
+    # Display all items
+    print(f"\n===== All Items in {city_library.name} =====")
+    for item in city_library.display_all_items():
+        print("\n" + item.display_info())
+        print("-" * 40)
+
+    # Search for an item by title
+    print("\n===== Search Results for 'Python' =====")
+    search_results = city_library.search_by_title("Python")
+    for item in search_results:
+        print("\n" + item.display_info())
+        print("-" * 40)
+
+    # Checkout an item
+    print("\n===== Checkout Book 'Python Programming' =====")
+    book1.checkout()
+    print(book1.display_info())
+
+    # Display available items
+    print("\n===== Available Items =====")
+    for item in city_library.display_available_items():
+        print("\n" + item.display_info())
+        print("-" * 40)
+
+    # Return an item
+    print("\n===== Return Book 'Python Programming' =====")
+    book1.return_item()
+    print(book1.display_info())

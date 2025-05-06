@@ -86,6 +86,6 @@ Fungsi-fungsi yang tersedia:
 
 ## Informasi Tambahan
 
-Program ini dikembangkan sebagai bagian dari tugas Praktikum Pemrograman Web di Institut Teknologi Sumatera (ITERA).
+Program ini dikembangkan sebagai bagian dari tugas Praktikum Pemrograman Web pertemuan 4 
 
 NIM: 122140166

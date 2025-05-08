@@ -96,22 +96,14 @@ for item in available_items:
 ## Example Output
 Berikut adalah contoh output dari program:
 
-```
-Book ID: B001
-Title: Python Programming
-Author: John Smith
-Publication Year: 2020
-ISBN: 978-1234567890
-Genre: Programming
-Status: Available
-----------------------------------------
+![image](https://github.com/user-attachments/assets/51f84e0b-e8a4-4395-84e8-dbd8a09af4d5)
+![image](https://github.com/user-attachments/assets/a2f2e2a1-7f4f-426a-be6c-756e8f5ead42)
+![image](https://github.com/user-attachments/assets/b6320848-588b-46f4-a593-27b2e9f29e26)
+![image](https://github.com/user-attachments/assets/ce294801-3cfe-4181-9c9f-b9b634d0a8f7)
+![image](https://github.com/user-attachments/assets/c89bb504-bb1f-4790-b9c8-fddf6dbbb593)
+![image](https://github.com/user-attachments/assets/59533bbb-dd1e-47a4-bb33-1e7394e97e33)
+![image](https://github.com/user-attachments/assets/c5e612a2-915e-4f00-a23b-01ab63cc1721)
 
-Magazine ID: M001
-Title: Tech Today
-Author: Tech Publications
-Publication Year: 2022
-Issue Number: Issue 45
-Category: Technology
-Status: Available
+
 ----------------------------------------
 ```

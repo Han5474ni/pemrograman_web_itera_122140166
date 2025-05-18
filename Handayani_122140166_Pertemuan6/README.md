@@ -3,37 +3,6 @@
 ## Deskripsi
 Dokumentasi ini menjelaskan langkah-langkah pembuatan API sederhana untuk manajemen data matakuliah di perguruan tinggi menggunakan Pyramid Framework, SQLAlchemy, Alembic, dan PostgreSQL.
 
-## Struktur Proyek
-```
-pyramid_matakuliah_api/
-├── matakuliah_api/
-│   ├── alembic/                  # Konfigurasi dan migrasi Alembic
-│   │   ├── versions/             # File migrasi database
-│   │   ├── env.py                # Konfigurasi environment Alembic
-│   │   └── script.py.mako        # Template untuk file migrasi
-│   ├── matakuliah_api/
-│   │   ├── models/               # Model SQLAlchemy
-│   │   │   ├── __init__.py
-│   │   │   ├── meta.py           # Metadata dan Base class
-│   │   │   └── matakuliah.py     # Model Matakuliah
-│   │   ├── schemas/              # Schema validasi Marshmallow
-│   │   │   ├── __init__.py
-│   │   │   └── matakuliah.py     # Schema validasi Matakuliah
-│   │   ├── security/             # Modul keamanan dan autentikasi
-│   │   │   ├── __init__.py
-│   │   │   └── jwt_auth.py       # Implementasi JWT
-│   │   ├── views/                # View dan endpoint API
-│   │   │   ├── __init__.py
-│   │   │   ├── auth.py           # Endpoint autentikasi
-│   │   │   ├── matakuliah.py     # Endpoint CRUD matakuliah
-│   │   │   └── notfound.py       # Penanganan error 404
-│   │   └── __init__.py           # Konfigurasi aplikasi
-│   ├── alembic.ini               # Konfigurasi Alembic
-│   └── development.ini           # Konfigurasi Pyramid
-├── venv/                         # Virtual environment
-└── test_api.sh                   # Script pengujian API dengan curl
-```
-
 ## Langkah-langkah Setup
 
 ### 1. Instalasi PostgreSQL
